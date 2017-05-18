@@ -18,7 +18,7 @@ class Row extends React.Component {
 			<div className="row">
 				{
 					this.props.cells.map((cell,i) => {
-						return <Cell key={i} cell={cell} />
+						return <Cell key={i} y={this.props.y} x={i} cell={cell} />
 					})
 				}
 			</div>

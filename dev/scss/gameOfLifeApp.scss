@@ -1,0 +1,31 @@
+/*-- Variables --*/
+$deep-blue: #140f57;
+$purple: #412860;
+$mid-purple: #6d4068;
+$light-purple: #9a5871;
+$pink: #c6717a;
+/*-- Mixins --*/
+@import './mixins/__flexbox';
+/*-- Components --*/
+.board {
+	@include flexbox;
+	@include flex-direction(column);
+
+	.row {
+		@include flexbox;
+		@include flex-direction();
+
+		.cell {
+			height: 15px;
+			width: 15px;
+			border: 1px solid $deep-blue;
+			background-color: $purple;
+		}
+
+		.living {
+			background-color: $pink;
+		}
+
+	}
+
+}

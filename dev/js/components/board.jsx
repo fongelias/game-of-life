@@ -18,7 +18,7 @@ class Board extends React.Component {
 			<div className="board">
 				{
 					this.props.rows.map((cells, i) => {
-						return <Row key={i} cells={cells} />
+						return <Row key={i} y={i} cells={cells} />
 					})
 				}
 			</div>

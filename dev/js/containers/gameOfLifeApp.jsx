@@ -29,7 +29,7 @@ class GameOfLifeApp extends React.Component {
 				</div>
 				<div className="generation-counter"></div>
 				<div className="game-container">
-					<Board rows={}/>
+					<Board rows={[[1,1]]}/>
 				</div>
 			</div>
 		)

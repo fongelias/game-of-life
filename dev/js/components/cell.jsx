@@ -14,7 +14,8 @@ class Cell extends React.Component {
 
 	render() {
 		return (
-			<div className="cell"></div>
+			<div className={this.props.cell === 1 ? "living cell" : "cell"}>
+			</div>
 		)
 	}
 }
