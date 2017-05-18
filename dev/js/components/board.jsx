@@ -1,5 +1,6 @@
 //dependencies
 import React from 'react';
+import Row from './row.jsx'
 
 //component
 class Board extends React.Component {
@@ -16,11 +17,13 @@ class Board extends React.Component {
 		return (
 			<div className="board">
 				{
-					this.props.rows.map((item, i) => {
-						return <Row key={i} cells={item} />
+					this.props.rows.map((cells, i) => {
+						return <Row key={i} cells={cells} />
 					})
 				}
 			</div>
 		)
 	}
 }
+
+module.exports = Board;

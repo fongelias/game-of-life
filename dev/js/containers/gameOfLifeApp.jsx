@@ -18,7 +18,7 @@ class GameOfLifeApp extends React.Component {
 	}
 
 	render() {
-		render(
+		return (
 			<div className="game-of-life-container">
 				<div className="button-container">
 					<button className="start-button"></button>
@@ -29,7 +29,7 @@ class GameOfLifeApp extends React.Component {
 				</div>
 				<div className="generation-counter"></div>
 				<div className="game-container">
-					<Board />
+					<Board rows={}/>
 				</div>
 			</div>
 		)

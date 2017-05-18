@@ -6,7 +6,7 @@ const webpack = require('webpack');
 //Module==================================================================
 module.exports = {
 	entry: { //Where bundler starts
-		gameOfLife: './dev/js/containers/gameOfLifeApp.jsx'
+		gameOfLifeApp: './dev/js/containers/gameOfLifeApp.jsx'
 	},
 	output: { //Where bundled code is to be saved
 		path: path.resolve('public/'), 
@@ -28,10 +28,7 @@ module.exports = {
 		}),
 		new CopyWebpackPlugin([
 			{from: './dev/index.html', to: './index.html'}
-		]),
-	    new webpack.DefinePlugin({
-	      'process.env.NODE_ENV': JSON.stringify('production')
-	    })
+		])
 	]
 }
 
