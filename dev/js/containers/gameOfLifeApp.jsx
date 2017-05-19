@@ -44,6 +44,9 @@ class GameOfLifeApp extends React.Component {
 
 	start() {
 		console.log("gameOfLifeApp.start()");
+		if(this.gameInterval) {
+			clearInterval(this.gameInterval);
+		}
 		this.gameInterval = setInterval(() => {
 			this.setState({
 				rows: this.grid.nextGeneration(),

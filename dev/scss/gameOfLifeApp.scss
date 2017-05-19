@@ -1,12 +1,91 @@
 /*-- Variables --*/
-$deep-blue: #140f57;
+$deep-blue: #0f0b41;
 $purple: #412860;
 $mid-purple: #6d4068;
 $light-purple: #9a5871;
 $pink: #c6717a;
 /*-- Mixins --*/
 @import './mixins/__flexbox';
+@import './mixins/__animate';
+/*-- Primary Containers --*/
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	padding:0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	overflow: hidden;
+}
+
+body {
+	@include flexbox;
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	@include justify-content(flex-start);
+	@include align-items(stretch);
+	@include align-content(stretch);
+	background: $deep-blue;
+}
+
+
 /*-- Components --*/
+.game-of-life-container {
+	min-width: 510px;
+	padding: 15vh 0rem;
+	font-size: 14px;
+}
+
+.button-container {
+	@include flexbox;
+	@include justify-content(center);
+	@include flex-wrap(wrap);
+
+	button {
+		@include transition(all 0.3s ease);
+		font-size: 14px;
+	    width: 90px;
+	    height: 33px;
+	    margin: 10px 10px 0px 10px;
+	    color: white;
+	    background-color: $purple;
+	    border: 0px;
+	    border-radius: 5px;
+	    outline: none;
+
+	    &:hover {
+	    	background-color:$light-purple;
+	    }
+
+	    &:active {
+	    	background-color:$pink;
+	    }
+	}
+
+	select {
+		border: 0px;
+	    color: white;
+	    background-color: $purple;
+	    height: 33px;
+	    width: 90px;
+	    font-size: 14px;
+	    margin: 10px 10px 0px 10px;
+	}
+}
+
+.generation-counter {
+	@include flexbox;
+	@include justify-content(center);
+	color: white;
+	padding: 1rem 0rem 0.5rem 0rem;
+}
+
+
 .board {
 	@include flexbox;
 	@include flex-direction(column);
@@ -14,6 +93,7 @@ $pink: #c6717a;
 	.row {
 		@include flexbox;
 		@include flex-direction();
+		@include justify-content(center);
 
 		.cell {
 			height: 15px;
