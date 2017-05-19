@@ -10,11 +10,17 @@ class Cell extends React.Component {
 		};
 
 		//binding functions
+		this.updateCell = this.updateCell.bind(this);
+	}
+
+	updateCell() {
+		this.props.setValue(this.props.x, this.props.y, this.props.cell ? 0 : 1);
 	}
 
 	render() {
 		return (
-			<div className={this.props.cell === 1 ? "living cell" : "cell"}>
+			<div className={this.props.cell === 1 ? "living cell" : "cell"}
+				onClick={this.updateCell}>
 			</div>
 		)
 	}
