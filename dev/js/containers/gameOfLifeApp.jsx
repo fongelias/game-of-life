@@ -13,9 +13,10 @@ class GameOfLifeApp extends React.Component {
 		super(props);
 		this.grid = new Grid(10,10);
 		this.state = {
-			rows: this.grid.getMatrix(),
+			rows: this.grid.randomizeMatrix(),
 			size: 10,
-			speed: 300
+			speed: 300,
+			generation: 0
 		};
 
 		//binding functions
@@ -45,7 +46,8 @@ class GameOfLifeApp extends React.Component {
 		console.log("gameOfLifeApp.start()");
 		this.gameInterval = setInterval(() => {
 			this.setState({
-				rows: this.grid.nextGeneration()
+				rows: this.grid.nextGeneration(),
+				generation: this.state.generation + 1
 			});
 		}, this.state.speed);
 	}
@@ -59,7 +61,8 @@ class GameOfLifeApp extends React.Component {
 		clearInterval(this.gameInterval);
 		this.grid = new Grid(this.state.size,this.state.size);
 		this.setState({
-			rows: this.grid.getMatrix()
+			rows: this.grid.getMatrix(),
+			generation: 0
 		});
 	}
 
@@ -95,7 +98,7 @@ class GameOfLifeApp extends React.Component {
 						<option value={30}>Large (30x30)</option>
 					</select>
 				</div>
-				<div className="generation-counter"></div>
+				<div className="generation-counter">Generation: {this.state.generation}</div>
 				<div className="game-container">
 					<Board rows={this.grid.getMatrix()} setValue={this.setValue}/>
 				</div>

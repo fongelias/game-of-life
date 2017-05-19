@@ -16,6 +16,15 @@ class Grid {
 		this.matrix = arr;
 	}
 
+	randomizeMatrix() {
+		this.matrix = this.matrix.map((row, i) => {
+			return row.map((cell, j) => {
+				return Math.random() < 0.6 ? 0 : 1;
+			})
+		})
+		return this.matrix;
+	}
+
 	setValue(x,y,value) {
 		console.log("setValue()");
 		if(this.matrix[y][x] !== undefined) {
