@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Board from '../components/board.jsx';
+import Grid from '../components/grid.js';
 //styles
 require('../../scss/gameOfLifeApp.scss');
 
@@ -10,6 +11,7 @@ require('../../scss/gameOfLifeApp.scss');
 class GameOfLifeApp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.grid = new Grid(10,10);
 		this.state = {
 
 		};
@@ -29,7 +31,7 @@ class GameOfLifeApp extends React.Component {
 				</div>
 				<div className="generation-counter"></div>
 				<div className="game-container">
-					<Board rows={[[1,1]]}/>
+					<Board rows={this.grid.getMatrix()}/>
 				</div>
 			</div>
 		)
